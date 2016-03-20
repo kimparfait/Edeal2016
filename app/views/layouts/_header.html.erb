@@ -1,0 +1,124 @@
+
+
+<nav class="navbar navbar-default navbar-static-top" >
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Edeal</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+     <li ><%= link_to "About", pages_about_path %></li>
+        <li><%= link_to "Contact", pages_contact_path %></li>
+
+        
+  
+      </ul>
+
+        <ul class="nav navbar-nav navbar-right  navbar-inverse" >
+         <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-expanded="false">All Categories<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                 <% Category.all.each do |category|%>
+                <li class="<%='active' if params[:category] == category.name %>" > 
+                <%= link_to category.name, listings_path(category: category.name), class: "link" %></li>
+                 <%end%>
+                  
+                
+              </ul>
+              <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-expanded="false">All Locations<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                 <% Location.all.each do |location|%>
+                <li class="<%='active' if params[:location] == location.name %>" > 
+                <%= link_to location.name, listings_path(location: location.name), class: "link" %></li>
+                 <%end%>
+                  
+                
+              </ul>
+
+          <% if user_signed_in? %>
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Seller Account <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                 <li><%= link_to "Manage Listings", seller_path %></li>
+                  <li><%= link_to "Sales History", sales_path %></li>
+                   <li><%= link_to 'New Ad', new_listing_path %> </li>  
+
+                  
+
+                
+              </ul>
+          </li>
+
+           <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Hi! <%=current_user.name%> <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                  <li><%= link_to "Purchases History", purchases_path %></li>
+         
+
+                  <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+                  <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+                
+              </ul>
+          </li>
+
+
+
+
+
+          
+          
+        <% else %>
+
+          <li > <%= link_to "Hi!Sign Up", new_user_registration_path %></li>
+           <li><%= link_to "Sign In", new_user_session_path %></li>
+        <%end%>
+
+       </ul>
+   <!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<marquee >
+
+<div class="id="clockbox" style="text-align: right; text-color:#333333; font:12pt Arial;"">
+<script type="text/javascript">
+tday=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+tmonth=new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+
+function GetClock(){
+var d=new Date();
+var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getYear();
+if(nyear<1000) nyear+=1900;
+var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
+
+if(nhour==0){ap=" AM";nhour=12;}
+else if(nhour<12){ap=" AM";}
+else if(nhour==12){ap=" PM";}
+else if(nhour>12){ap=" PM";nhour-=12;}
+
+if(nmin<=9) nmin="0"+nmin;
+if(nsec<=9) nsec="0"+nsec;
+
+document.getElementById('clockbox').innerHTML=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+" "+nhour+":"+nmin+":"+nsec+ap+"";
+}
+
+window.onload=function(){
+GetClock();
+setInterval(GetClock,1000);
+}
+</script>
+<div id="clockbox"></div>
+
+
+</div>
+</marquee>

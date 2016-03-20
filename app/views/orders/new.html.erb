@@ -1,0 +1,61 @@
+<h1>New order</h1>
+
+
+<button type="button" class="btn btn-primary " data-toggle="modal" data-target="#myModal">
+  Place Order
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Order</h4>
+      </div>
+      <div class="modal-body">
+       <%= form_for([@listing,@order]) do |f| %>
+  <% if @order.errors.any? %>
+   <div id="error_explanation" class="alert alert-danger alert-dismissible">
+     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h4>
+
+      <ul>
+      <% @order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :address %><br>
+    <%= f.text_area :address, placeholder: "your address",class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :city %><br>
+    <%= f.text_field :city, placeholder: "city", class: "form-control"%>
+  </div>
+  <div class="form-group">
+    <%= f.label :number %><br>
+    <%= f.text_field :number,placeholder: "phone", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :message %><br>
+    <%= f.text_area :message, placeholder: "message for seller", class: "form-control" %>
+  </div>
+  <div class="form-group ">
+    <%= f.submit "complete Order", class: "btn btn-success" %>
+  </div>
+<% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+ 
+<%= link_to 'Back', listings_path, class: "btn btn-link" %>
