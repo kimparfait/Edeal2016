@@ -19,6 +19,7 @@ $footer-body-height: 50px;
 }
 .navbar-default {
 	background-color: #333333;
+
 }
 .navbar-default .navbar-brand {
 	font-family: guardain-egyptt, georgia, serif;
@@ -255,19 +256,77 @@ border:1px solid #021a40;
 
    bottom: $footer-body-height;
    height: $footer-header-height;
+   
+
 
    p {
         color: white;
-		font-size: 15px;
+		font-size: 13px;
 		margin: 0px;
+		 
+
+.bottomleft {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+    font-size: 18px;
+}
+		
+		
+		
+	 
 		}
 
+		h1 {
+		color: white;
+		margin-top: 0;
+		
+		margin-bottom: 15px;
+		font-size: 13px;
+		margin: auto;
+    width: 60%;
+    
+    padding: 10px;
+
+	}
+	h3 {
+        color: white;
+		font-size: 13px;
+		margin: 0px;
+		margin: auto;
+    width: 60%;
  
-  animation-duration: 3s;
-  animation-name: slidein;
-  
-    animation-direction: alternate;
-    padding:5px;
+    padding: 10px;
+
+		}
+
+		h2 {
+        color: white;
+		font-size: 10px;
+		margin: 0px;
+		 
+		
+}
+
+
+		
+
+		h4 {
+        color: white;
+		font-size: 16px;
+		margin: 0px;
+		position: absolute;
+    top: 80px;
+    right: 0;
+    width: 200px;
+    height: 100px;
+
+   
+
+		}
+
+   
+ 
 }
 
 @keyframes slidein {
