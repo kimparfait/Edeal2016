@@ -16,6 +16,8 @@
 	<p class="current-category" style="color:blue" >Location: <%=@listing.location.name %> </p>
 
 	<div class="average-review-rating" data-score=<%=  @average_review %>> Average Rating: </div>
+    <p class="current-category" style="color:blue" > Views:<%=@listings.impressionist_count%> <p>
+
 
 	<%= link_to 'Order Now', new_listing_order_path(@listing), class: "btn btn-primary" %> 
 
@@ -25,6 +27,7 @@
 </div>
 </div>
 </div>
+
 
 <div class="row">
 <div class="col-md-4">

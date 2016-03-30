@@ -1,4 +1,10 @@
 class Listing < ActiveRecord::Base
+  is_impressionable
+  
+
+  def impressionist_count
+    impressions.size
+  end
 	
 	if Rails.env.development?
     has_attached_file :image, :styles => { :medium => "200x", :thumb => "100x100>" }, :default_url => "default.jpg"
@@ -20,5 +26,6 @@ end
  belongs_to :category
   belongs_to :location
   has_many   :reviews
+  has_many :impressions, :as=>:impressionable
 
 end

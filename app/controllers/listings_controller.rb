@@ -2,16 +2,22 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
    before_filter :authenticate_user!, only: [ :seller, :new, :create, :edit, :update, :destroy]
    before_filter :check_user, only: [:edit, :update, :destroy]
-
+  impressionist actions: [:show], unique: [:session_hash]
+  
 
  def seller
       @listings = Listing.where(user: current_user).order("created_at DESC")
+
+ 
   end 
   # GET /listings
   # GET /listings.json
   def index
 
+
   @listings = Listing.limit(20).order("created_at DESC")
+
+      
 
   if params[:category].present?
     category_id = Category.find_by(name: params[:category]).try(:id)
@@ -22,7 +28,7 @@ class ListingsController < ApplicationController
     location_id = Location.find_by(name: params[:location]).try(:id)
     @listings = @listings.where(location_id: location_id) if location_id
   end
-
+ 
 end
  
 
@@ -34,6 +40,9 @@ end
     else
       @average_review = @listing.reviews.average(:rating).round(2)
     end
+
+     @listings = Listing.find(params[:id])
+  impressionist(@listings)
   end
 
   # GET /listings/new
