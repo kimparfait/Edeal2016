@@ -14,6 +14,7 @@ gem "paperclip", "~> 4.3"
 gem "paperclip-dropbox", ">= 1.1.7"
 gem 'figaro'
 gem 'devise'
+gem 'activeadmin', '~> 1.0.0.pre2'
 gem 'impressionist'
 gem 'rake', '~> 10.5'
 

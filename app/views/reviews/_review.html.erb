@@ -1,7 +1,8 @@
 <div class="review ">
 <p style="color:blue"> <%= review.user.name%></p>
 <div class="review-rating" data-score="<%= review.rating %>"></div>
-<p class="review-comment"> <%= review.comment %></p>
+<p class="review-comment"> <%= review.comment %> (Posted <%=time_ago_in_words(review.created_at) %>)</p>
+
 
 
 
