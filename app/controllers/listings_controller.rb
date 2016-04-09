@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
-  before_action :set_listing, only: [:show, :edit, :update, :destroy]
-   before_filter :authenticate_user!, only: [ :seller, :new, :create, :edit, :update, :destroy]
+  before_action :set_listing, only: [:show, :edit, :update, :destroy,:upvote]
+   before_filter :authenticate_user!, only: [ :seller, :new, :create, :edit, :update, :destroy, :upvote]
    before_filter :check_user, only: [:edit, :update, :destroy]
   impressionist actions: [:show], unique: [:session_hash]
   
@@ -28,6 +28,7 @@ class ListingsController < ApplicationController
     location_id = Location.find_by(name: params[:location]).try(:id)
     @listings = @listings.where(location_id: location_id) if location_id
   end
+   
  
 end
  
@@ -105,6 +106,11 @@ end
       format.json { head :no_content }
     end
   end
+  def upvote 
+    @listing.upvote_by current_user
+    redirect_to :back
+
+  end 
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -118,7 +124,7 @@ end
     end
     def check_user
        if current_user != @listing.user
-          redirect_to root_url, alert: "Sorry, this listing belongs to someone else"
+          redirect_to root_url, alert: "Sorry, this ads belongs to someone else"
     end 
     end 
 end

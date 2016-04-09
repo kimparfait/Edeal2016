@@ -47,14 +47,18 @@ ActiveAdmin.register_page "Dashboard" do
 
 
 
-    #   column do
-    #     panel "Info" do
-    #       para "Welcome to ActiveAdmin."
-    #     end
-    #   end
-    # end
+      column do
+        panel "Info" do
+         para "Welcome Admin."
+         para" Edeal "
+        end
+      end
+    end 
+    end
+
   end # content
+
 end
 end
-end  
-end
+  
+

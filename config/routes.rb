@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   resources :listings do
    resources :orders, only: [:new, :create]
    resources :reviews
+    member do
+      put "like", to: "listings#upvote"
+    end
+
  end
   get 'pages/about'
 

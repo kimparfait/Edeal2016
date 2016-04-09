@@ -12,6 +12,17 @@ ActiveAdmin.register Listing do
 #   permitted << :other if resource.something?
 #   permitted
 # end
+index do
+  column :name
+  column :description
+  column :price
+  column :phone
+  column :address
+  column :created_at
+  
+
+
+end
 
 
 end

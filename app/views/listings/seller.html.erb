@@ -1,6 +1,15 @@
+
+
+
+
+
+  
+
+<br>
 <div class="black">
-<table class = "table table-striped table-bordered table-hover">
+<table class = "table table-striped table-bordered table-hover" width="200" height="60">
 <tr>
+<h1> Your ads </h1>
 <th class = "center">Image</th>
     <th class = "center">Name</th>
     <th class = "center">Description</th>
@@ -38,7 +47,7 @@
 
 
 <br>
-<% if user_signed_in? %>
-  <%= link_to 'New Ad', new_listing_path, class: "btn btn-primary" %>   
-<%end%>
+  <% if user_signed_in? %>
+    <%= link_to 'New Ad', new_listing_path, class: "btn btn-primary" %>   
+  <%end%>
 </div>

@@ -1,8 +1,21 @@
+
+
+
+
+
 <div class="black">
 <div class="row">
 <div class="col-md-6">
+<br>
 <div class="thumbnail">
 <%= image_tag @listing.image.url %>
+<div class="center"><%=link_to like_listing_path(@listing), method: :put, class: "btn btn-default" do %>
+	<span class="glyphicon glyphicon-heart"></span>
+	Like
+	<%= @listing.get_upvotes.size %>
+	   <% end %>
+	</div>
+</br>
 </div>
 </div>
 <div class="col-md-6">
@@ -11,7 +24,9 @@
 	<h3 class="book-title"><%= @listing.name %></h3>
 	<p > <%= number_to_currency(@listing.price,:unit => "USh") %></p>
 	<p class="book-desc"> <%= @listing.description %></p>
-	<p class="book-author"> Call me:<%= @listing.phone %></p>
+	<p class="book-author"> <button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-phone-alt"></span> Phone
+        </button>:<%= @listing.phone %></p>
 	<p class="book-desc"> Address:<%= @listing.address %></p>
 	<p class="current-category" style="color:blue" >Location: <%=@listing.location.name %> </p>
 
@@ -24,7 +39,7 @@
 	<%= link_to 'Order Now', new_listing_order_path(@listing), class: "btn btn-primary" %> 
 
 
-		<%= link_to " Add Review", new_listing_review_path(@listing) , class: "btn btn-primary" %>
+		<%= link_to " Comment", new_listing_review_path(@listing) , class: "btn btn-primary" %>
 </div>
 </div>
 </div>
@@ -34,7 +49,8 @@
 <div class="row">
 <div class="col-md-4">
 <div class="reviews"> 
-	<h2 class="center">  Rating and Comment</h2>
+	<h2 class="center" style="color:blue">Comment</h2>
+	<hr>
 	<%= render @listing.reviews.limit(7).order("created_at DESC") %> 
 	
 	

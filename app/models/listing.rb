@@ -1,6 +1,6 @@
 class Listing < ActiveRecord::Base
   is_impressionable
-  
+    acts_as_votable
 
   def impressionist_count
     impressions.size
@@ -16,7 +16,7 @@ class Listing < ActiveRecord::Base
 
 end
 
- validates :name, :description, :price, :address, :phone, presence: true 
+ validates :name, :description,  :address, :phone, presence: true 
  validates :price, numericality: { greater_than: 0}
  validates :phone, length: { maximum: 14 }
 

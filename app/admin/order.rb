@@ -12,6 +12,12 @@ ActiveAdmin.register Order do
 #   permitted << :other if resource.something?
 #   permitted
 # end
+index do
+  column :city
+  column :address
+  column :number
+  column :message
+end
 
 
 end
