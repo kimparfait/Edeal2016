@@ -1,6 +1,7 @@
 class Listing < ActiveRecord::Base
   is_impressionable
     acts_as_votable
+      searchkick 
 
   def impressionist_count
     impressions.size

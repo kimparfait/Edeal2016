@@ -4,6 +4,13 @@ class ListingsController < ApplicationController
    before_filter :check_user, only: [:edit, :update, :destroy]
   impressionist actions: [:show], unique: [:session_hash]
   
+  def search
+    if params[:search].present?
+      @listings= Listing.search(params[:search])
+    else
+      @listings = Listing.all
+    end
+  end
 
  def seller
       @listings = Listing.where(user: current_user).order("created_at DESC")

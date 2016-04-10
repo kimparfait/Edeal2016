@@ -18,6 +18,7 @@ gem 'activeadmin', '~> 1.0.0.pre2'
 gem 'impressionist'
 gem 'rake', '~> 10.5'
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'searchkick', '~> 1.2', '>= 1.2.1'
 
 
 group :production do
