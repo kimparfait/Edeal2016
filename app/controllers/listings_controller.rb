@@ -57,7 +57,7 @@ end
   def new
     @listing = Listing.new
     @categories = Category.all.map{|c| [c.name, c.id]}
-    @locations= Location.all.map{|c| [c.name, c.id]}
+      @locations= Location.all.map{|c| [c.name, c.id]}
   end 
 
   # GET /listings/1/edit
@@ -70,7 +70,10 @@ end
   # POST /listings.json
   def create
     @listing = Listing.new(listing_params)
+    @listing.location_id = params[:location_id]
     @listing.category_id = params[:category_id]
+
+   
      
     @listing.user_id = current_user.id
 
