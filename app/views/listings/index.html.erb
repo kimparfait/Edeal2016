@@ -80,5 +80,15 @@
 <br>
 
 </div>
+<% unless @listings.empty? %>
+
+<nav>
+  <ul class="pager">
+    <li class="previous " <%= will_paginate @listings%> <span aria-hidden="true">&larr;
+   
+  </ul>
+</nav>
+<% end %>
+
 
 

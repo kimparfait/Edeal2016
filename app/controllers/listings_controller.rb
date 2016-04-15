@@ -22,7 +22,8 @@ class ListingsController < ApplicationController
   def index
 
 
-  @listings = Listing.limit(20).order("created_at DESC")
+  
+  @listings = Listing.paginate(:page => params[:page], :per_page => 5).order("created_at DESC")
 
       
 
@@ -57,7 +58,7 @@ end
   def new
     @listing = Listing.new
     @categories = Category.all.map{|c| [c.name, c.id]}
-      @locations= Location.all.map{|c| [c.name, c.id]}
+   @locations= Location.all.map{|c| [c.name, c.id]}
   end 
 
   # GET /listings/1/edit
@@ -70,8 +71,10 @@ end
   # POST /listings.json
   def create
     @listing = Listing.new(listing_params)
-    @listing.location_id = params[:location_id]
+   
     @listing.category_id = params[:category_id]
+    
+      @listing.location_id = params[:location_id]
 
    
      
