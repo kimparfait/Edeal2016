@@ -13,10 +13,11 @@ class ListingsController < ApplicationController
   end
 
  def seller
-      @listings = Listing.where(user: current_user).order("created_at DESC")
+      @listings = Listing.where(user: current_user).limit(4).order("created_at DESC")
 
  
   end 
+  
   # GET /listings
   # GET /listings.json
   def index
@@ -83,7 +84,7 @@ end
 
     respond_to do |format|
       if @listing.save
-        format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
+        format.html { redirect_to @listing, notice: 'Ad was successfully created.' }
         format.json { render :show, status: :created, location: @listing }
       else
         format.html { render :new }
@@ -101,7 +102,7 @@ end
         @listing.location_id = params[:location_id]
 
       if @listing.update(listing_params)
-        format.html { redirect_to @listing, notice: 'Listing was successfully updated.' }
+        format.html { redirect_to @listing, notice: 'Ad was successfully updated.' }
         format.json { render :show, status: :ok, location: @listing }
       else
         format.html { render :edit }
@@ -115,7 +116,7 @@ end
   def destroy
     @listing.destroy
     respond_to do |format|
-      format.html { redirect_to listings_url, notice: 'Listing was successfully destroyed.' }
+      format.html { redirect_to listings_url, notice: 'Ad was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -137,7 +138,7 @@ end
     end
     def check_user
        if current_user != @listing.user
-          redirect_to root_url, alert: "Sorry, this ads belongs to someone else"
+          redirect_to root_url, alert: "Sorry, this ad belongs to someone else"
     end 
     end 
 end
