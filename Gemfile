@@ -20,8 +20,7 @@ gem 'rake', '~> 10.5'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'searchkick', '~> 1.2', '>= 1.2.1'
 gem 'will_paginate', '~> 3.1'
-
-
+gem 'geocoder'
 group :production do
   gem 'pg'
   gem 'rails_12factor'

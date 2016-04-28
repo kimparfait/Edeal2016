@@ -17,16 +17,30 @@ class Listing < ActiveRecord::Base
 
 end
 
+
  validates :name, :description,  :address, :phone, presence: true 
  validates :price, numericality: { greater_than: 0}
  validates :phone, length: { maximum: 14 }
 
  validates_attachment_presence :image
+ geocoded_by :full_address
+  after_validation :geocode
+
+  def full_address
+    [address].join(',')
+  end 
+
+
+
  belongs_to :user
  has_many :orders
  belongs_to :category
   belongs_to :location
   has_many   :reviews
   has_many :impressions, :as=>:impressionable
+
+
+ 
+
 
 end

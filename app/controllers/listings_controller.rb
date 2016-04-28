@@ -22,9 +22,14 @@ class ListingsController < ApplicationController
   # GET /listings.json
   def index
 
+  visitor_latitude= 0.318383
+  visitor_longitude= 32.574706
 
   
-  @listings = Listing.paginate(:page => params[:page], :per_page => 5).order("created_at DESC")
+  @listings = Listing.paginate(:page => params[:page], :per_page => 5).near([visitor_latitude,visitor_longitude],60).order("created_at DESC")
+ 
+  
+  
 
       
 
@@ -45,6 +50,12 @@ end
   # GET /listings/1
   # GET /listings/1.json
   def show
+     #visitor_latitude=request.location.latitude
+#visitor_longitude=request.location.longitude
+visitor_latitude= 0.318383
+visitor_longitude= 32.574706
+
+
       if @listing.reviews.blank?
       @average_review = 0
     else
