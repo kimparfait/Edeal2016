@@ -1,19 +1,53 @@
-<div class="row">
-<div class="col-md-8">
-<div class="footer" style=" background-color:#333333; width:1400px; height:150px;" >
-<ul>
-<li><p > <a style="color:white"  href="/">EDEAL</a></h1><li>
-<li><p><a  style="color:white" href=" /listings/new"> ADVERTISE WITH EDEAL</a> </h1></li> <br>
-<p> Copyright@edeal</p>
-</ul>
 
 
- 
+<nav class="navbar navbar-default navbar-fixed-bottom "  >
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" >
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">M</a>
+    </div>
 
- 
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+     <li ><%= link_to "About", pages_about_path %></li>
+        <li><%= link_to "Contact", pages_contact_path %></li>
+
+        
+  
+      </ul>
+     
+
+        
+
+          
+          
 
 
-</div>
 
-</div>
+
+
+          
+          
+        <ul class="nav navbar-nav navbar-right  navbar-inverse"  >
+
+         <%= link_to "Hi!Advertise with us", new_user_registration_path, class: "current-category" %>          
+         
+           
+
+        
+
+       </ul>
+   <!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+
 
