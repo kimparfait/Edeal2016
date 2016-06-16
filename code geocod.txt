@@ -1,0 +1,1 @@
+.near([visitor_latitude,visitor_longitude],60)

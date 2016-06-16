@@ -13,7 +13,7 @@ class ListingsController < ApplicationController
   end
 
  def seller
-      @listings = Listing.where(user: current_user).limit(4).order("created_at DESC")
+      @listings = Listing.where(user: current_user).paginate(:page => params[:page], :per_page => 4).order("created_at DESC")
 
  
   end 
@@ -22,11 +22,11 @@ class ListingsController < ApplicationController
   # GET /listings.json
   def index
 
-  visitor_latitude= 0.318383
-  visitor_longitude= 32.574706
+  #visitor_latitude= 0.318383
+  #visitor_longitude= 32.574706
 
   
-  @listings = Listing.paginate(:page => params[:page], :per_page => 5).near([visitor_latitude,visitor_longitude],60).order("created_at DESC")
+  @listings = Listing.paginate(:page => params[:page], :per_page => 8).order("created_at DESC")
  
   
   
@@ -52,8 +52,8 @@ end
   def show
      #visitor_latitude=request.location.latitude
 #visitor_longitude=request.location.longitude
-visitor_latitude= 0.318383
-visitor_longitude= 32.574706
+#visitor_latitude= 0.318383
+#visitor_longitude= 32.574706
 
 
       if @listing.reviews.blank?

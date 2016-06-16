@@ -3,9 +3,7 @@ class Listing < ActiveRecord::Base
     acts_as_votable
         searchkick suggest: [:name] 
 
-  def impressionist_count
-    impressions.size
-  end
+
 	
 	if Rails.env.development?
     has_attached_file :image, :styles => { :medium => "200x", :thumb => "100x100>" }, :default_url => "default.jpg"

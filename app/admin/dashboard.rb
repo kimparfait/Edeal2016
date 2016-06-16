@@ -16,7 +16,7 @@ ActiveAdmin.register_page "Dashboard" do
       column do
          panel "Recent Ads" do
            ul do
-             Listing.limit(10).map do |listing|
+             Listing.limit(15).map do |listing|
               li link_to(listing.name, admin_listing_path(listing))
              end
           end
