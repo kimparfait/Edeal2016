@@ -1,10 +1,5 @@
 
 
-<div class="jumbotron">
-
-<h1 style="color:Cornsilk ;">Handcrafted items around your town</h1>
-<h2 style="color:Cornsilk ;">Advertise your products with edeal</h2>
-</div>
 <div class="black">
   <h3 class="current-category" style="color:blue" > <%= params[:category] %></h3>
   <h3 class="current-category" style="color:blue" > <%= params[:location] %></h3>
@@ -23,7 +18,7 @@
          
           <div class="caption">
             <h3><%= listing.name %></h3>
-            <p><%= number_to_currency(listing.price,:unit => "USh") %></p>
+            <p><%= number_to_currency(listing.price,:unit => "Fr") %></p>
             
             <p lass="current-category" style="color:blue;">Posted <%=time_ago_in_words(listing.created_at) %> by  <%= listing.user.name%></p>
 

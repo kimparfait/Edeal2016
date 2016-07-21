@@ -13,6 +13,7 @@
 <%= render 'layouts/header' %>	
 
 
+
 <div class="container">
 <% flash.each do |name, msg| %>
 	    <% if msg.is_a?(String) %>
@@ -22,7 +23,22 @@
 	      </div>
 	    <% end %>
 	  <% end %>
-  
+  <div class="owl-carousel">
+    <div class="item" data-merge="1"><h2><img src="../assets/shoes1.jpeg " alt="all star"></h2></div>
+    <div class="item" data-merge="2"><h2><img src="../assets/shoes2.jpeg" alt="all star"></h2></div>
+    <div class="item" data-merge="1"><h2><img src="../assets/shoes1.jpeg"></h2></div>
+    <div class="item" data-merge="3"><h2><img src="../assets/shoes2.jpeg"></h2></div>
+    <div class="item" data-merge="6"><h2>6</h2></div>
+    <div class="item" data-merge="2"><h2>7</h2></div>
+    <div class="item" data-merge="1"><h2>8</h2></div>
+    <div class="item" data-merge="3"><h2>9</h2></div>
+    <div class="item"><h2>10</h2></div>
+    <div class="item"><h2>11</h2></div>
+    <div class="item" data-merge="2"><h2>12</h2></div>
+    <div class="item"><h2>13</h2></div>
+    <div class="item"><h2>14</h2></div>
+    <div class="item"><h2>15</h2></div>
+</div>
 
 <%= yield %>
 
@@ -40,3 +56,23 @@
 </body>
 
 </html>
+
+<script>
+  
+
+$('.owl-carousel').owlCarousel({
+    items:5,
+    loop:true,
+    margin:10,
+    merge:true,
+    autoPlay:true,
+    responsive:{
+        678:{
+            mergeFit:true
+        },
+        1000:{
+            mergeFit:false
+        }
+    }
+});
+</script>
